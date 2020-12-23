@@ -8,16 +8,14 @@ import SearchIcon from '@material-ui/icons/Search'
 const Search = () => {
     const classes = useStyles()
     const dispatch = useDispatch()
-    const units = useSelector(state => state.units)
+    const units = useSelector(state => state.units).substring(1).toLowerCase()
     const [search, setSearch] = useState('')
 
     const handleInput = ({ target }) => setSearch(target.value)
 
     const handleSearch = (e) => {
         if (e.keyCode === 13) {
-            console.log(search)
-            console.log(units)
-            // dispatch(getCity(search, units))
+            dispatch(getCity(search, units))
             setSearch('')
         }
     }

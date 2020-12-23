@@ -16,7 +16,7 @@ const App = () => {
   const handleUnits = ({ target }) => {
     const { outerText } = target
     console.log('original state:', units, 'user selected:', outerText)
-    if (outerText !== units) dispatch(setUnits(outerText))
+    if (outerText !== units) dispatch(setUnits(outerText), function(){console.log('hello')})
     console.log('user selected:', outerText, 'updated state:', units)
   }
 
@@ -26,9 +26,9 @@ const App = () => {
 
   return (
     <div className='App'>
-      <div className={units === FAHRENHEIT ? 'selected' : 'not-selected'} onClick={handleUnits}>°F</div>
-      <div>|</div>
-      <div className={units === CELSIUS ? 'selected' : 'not-selected'} onClick={handleUnits}>°C</div>
+      <span className={units === FAHRENHEIT ? classes.selected : classes.notSelected} onClick={handleUnits}>°F</span>
+      <span>|</span>
+      <span className={units === CELSIUS ? classes.selected : classes.notSelected} onClick={handleUnits}>°C</span>
       <Cities />
       <NavBar />
     </div>

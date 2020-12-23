@@ -1,5 +1,5 @@
 // import { FETCH_ALL, DELETE, UPDATE, CREATE, LIKE } from '../actions/constants'
-
+//5
 const cities = (cities = [], action) => {
     switch (action.type) {
         // case FETCH_ALL:

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import dotenv from 'dotenv'
+//3
 
 dotenv.config()
 const { WEATHER_API_KEY } = process.env

@@ -1,0 +1,5 @@
+export const CELSIUS = '°C'
+export const FAHRENHEIT = '°F'
+// export const UPDATE = 'UPDATE'
+// export const DELETE = 'DELETE'
+// export const LIKE = 'LIKE'

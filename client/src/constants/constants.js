@@ -1,5 +1,7 @@
 export const CELSIUS = '°C'
 export const FAHRENHEIT = '°F'
+export const NEW_CITY = 'NEW_CITY'
+export const FETCH_ALL_CITIES = 'FETCH_ALL_CITIES'
 // export const UPDATE = 'UPDATE'
 // export const DELETE = 'DELETE'
 // export const LIKE = 'LIKE'

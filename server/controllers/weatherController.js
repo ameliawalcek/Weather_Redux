@@ -7,29 +7,20 @@ const { WEATHER_API_KEY } = process.env
 
 class WeatherAPI {
     constructor() {
-        this.baseUrl = 'https://api.weatherstack.com'
-        this.key = WEATHER_API_KEY //get key
+        this.baseUrl = 'http://api.openweathermap.org/data/2.5/find'
+        this.key = WEATHER_API_KEY
     }
 
     async getCity(search) {
-        const { query, units } = search
-        const params = { access_key: this.key, query, units }
-        console.log(this.key)
-        axios.get('https://api.weatherstack.com/current', { params })
-            .then(response => {
-                const apiResponse = response.data;
-                console.log(response.data)
-                // console.log(`Current temperature in ${apiResponse.location.name} is ${apiResponse.current.temperature}℃`);
-            }).catch(error => {
-                console.log(error);
-            });
-        // const data = await axios.get(`${this.baseUrl}/current`, { params }).data
-        // console.log(data)
-        // return await axios.get(`${this.baseUrl}/current`, { params }).data
+        let { query, units } = search
+        units = units === 'f' ? 'imperial' : 'metric'
+
+        return (await axios.get(`${this.baseUrl}?q=${query}&units=${units}&appid=${this.key}`)).data.list[1]
     }
 
     async getCities(cities, units) {
         //might be able to refer to the top method
+        //api.openweathermap.org/data/2.5/group?id=524901,703448,2643743&appid={API key}
         async function getCity(query) {
             const params = { access_key: this.key, query, units }
 

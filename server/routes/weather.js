@@ -4,7 +4,6 @@ const weatherRouter = express.Router()
 //4
 
 weatherRouter.get('/city/:query/:units', async (req, res) => {
-    //query is cityName/lat lon/etc
     let response = await dataControllers.weatherAPI.getCity(req.params)
     res.send(response)
 })

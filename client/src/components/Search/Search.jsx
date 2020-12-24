@@ -9,6 +9,7 @@ const Search = () => {
     const classes = useStyles()
     const dispatch = useDispatch()
     const units = useSelector(state => state.units).substring(1).toLowerCase()
+    const cities = useSelector(state => state.cities)
     const [search, setSearch] = useState('')
 
     const handleInput = ({ target }) => setSearch(target.value)
@@ -17,6 +18,7 @@ const Search = () => {
         if (e.keyCode === 13) {
             dispatch(getCity(search, units))
             setSearch('')
+            console.log(cities)
         }
     }
 

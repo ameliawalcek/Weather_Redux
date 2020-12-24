@@ -10,8 +10,7 @@ const Cities = () => {
 
     return (
         <div>
-            CITIES
-            <City />
+            {cities.map(city => <City key={city.id} city={city} />)}
         </div>
     )
 }

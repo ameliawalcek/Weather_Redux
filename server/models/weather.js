@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 const weatherSchema = mongoose.Schema({
-  city: String
+  cityId: String
 
 }, { timestamps: true })
 

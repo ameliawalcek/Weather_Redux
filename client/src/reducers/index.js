@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 
-import weather from './weather'
-import user from './user'
+import cities from './cities'
+import favorites from './favorites'
 import units from './units'
 
 export default combineReducers({
-    // weather, 
-    user,
+    cities, 
+    favorites,
     units
 })

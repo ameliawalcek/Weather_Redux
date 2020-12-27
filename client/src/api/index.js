@@ -1,5 +1,4 @@
 import axios from 'axios'
-//2
 
 const weatherUrl = 'http://localhost:5000/api/v1/weather'
 const userUrl = 'http://localhost:5000/api/v1/user'

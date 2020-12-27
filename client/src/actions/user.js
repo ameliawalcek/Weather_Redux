@@ -1,27 +1,43 @@
 import * as api from '../api'
-import { FETCH_ALL_CITIES } from '../constants/constants'
-//1
+import { FETCH_ALL_CITIES, FETCH_ALL_FAVORITES, CREATE_FAVORITE, DELETE_FAVORITE, TOGGLE_TRUE, TOGGLE_FALSE } from '../constants/constants'
 
-export const fetchFavorites = () => async (dispatch) => {
+export const fetchFavorites = (units) => async (dispatch) => {
     try {
-        const data = await api.fetchFavorites()
-        console.log(data)
+        let favorites = await api.fetchFavorites()
+        favorites = favorites.data.map(d => parseInt(d.cityId))
+        dispatch({ type: FETCH_ALL_FAVORITES, payload: favorites })
 
-        dispatch({ type: FETCH_ALL_CITIES, payload: data })
+        if (favorites.length) {
+            const { data } = await api.getCities(favorites, units.substring(1).toLowerCase())
+            const newData = data.map(d => {
+                return { id: d.id, name: d.name, country: d.sys['country'], main: d.main, weather: d.weather[0], wind: d.wind }
+            })
+
+            dispatch({ type: FETCH_ALL_CITIES, payload: newData })
+        }
     } catch (error) {
         console.error(error)
     }
 }
 
 export const createFavorite = (cityId) => async (dispatch) => {
-    console.log('trying to add')
-    const data = await api.createFavorite(cityId)
-    console.log('actions', data)
+    try {
+        const data = await api.createFavorite(cityId)
+        dispatch({ type: CREATE_FAVORITE, payload: data })
+
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 export const deleteFavorite = (cityId) => async (dispatch) => {
-    await api.deleteFavorite(cityId)
-    console.log('trying to delete')
+    try {
+        await api.deleteFavorite(cityId)
+
+        dispatch({ type: DELETE_FAVORITE, payload: cityId })
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 export const setUnits = (type) => {

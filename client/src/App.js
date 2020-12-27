@@ -11,19 +11,20 @@ const App = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
   const units = useSelector(state => state.units)
-  const cities = useSelector(state => state.cities)
   const favorites = useSelector(state => state.favorites)
 
   const handleUnits = ({ target }) => {
     const { outerText } = target
-    if (outerText !== units) dispatch(setUnits(outerText))
+    if (outerText !== units) {
+      dispatch(setUnits(outerText))
+    }
   }
 
   useEffect(() => {
-    dispatch(fetchFavorites())
-  }, [favorites, dispatch])
+    dispatch(fetchFavorites(units))
+    // console.log('dispatching')
+  }, [favorites.length, units, dispatch])
 
-  console.log('state:', cities)
   return (
     <div className='App'>
       <NavBar />

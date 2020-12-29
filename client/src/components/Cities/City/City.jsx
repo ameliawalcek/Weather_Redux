@@ -33,8 +33,8 @@ const City = ({ city }) => {
         <>
             <Card className={classes.root}>
                 {isFavorite
-                    ? <div onClick={handleClick}><RemoveCircleIcon /></div>
-                    : <div onClick={handleClick}><AddCircleIcon /></div>
+                    ? <div className={classes.icon} onClick={handleClick}><RemoveCircleIcon /></div>
+                    : <div className={classes.icon} onClick={handleClick}><AddCircleIcon /></div>
                 }
                 <div className={classes.details}>
                     <CardContent className={classes.content}>

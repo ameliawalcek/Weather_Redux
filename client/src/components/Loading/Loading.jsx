@@ -7,7 +7,7 @@ function Loading() {
 
   return (
     <div className={classes.loader}>
-      <Loader type='ThreeDots' color='#3DA485' height={150} width={150} />
+      <Loader type='ThreeDots' color='white' height={150} width={150} />
     </div>
   )
 }

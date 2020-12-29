@@ -29,7 +29,7 @@ const App = () => {
     <div className='App'>
       <NavBar />
       <span className={units === FAHRENHEIT ? classes.selected : classes.notSelected} onClick={handleUnits}>°F</span>
-      <span>|</span>
+      <span className={classes.notSelected}>|</span>
       <span className={units === CELSIUS ? classes.selected : classes.notSelected} onClick={handleUnits}>°C</span>
       <Cities />
     </div>

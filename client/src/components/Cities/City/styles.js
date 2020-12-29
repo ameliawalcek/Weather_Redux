@@ -8,6 +8,10 @@ export default makeStyles((theme) => ({
         background: 'rgba(255, 255, 255, 0.1)',
         border: 'rgba(255, 255, 255, 0.1) solid 2px',
     },
+    icon: {
+        color: 'white',
+        cursor: 'pointer'
+    },
     details: {
         display: 'flex',
         flexDirection: 'column',

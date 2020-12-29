@@ -9,12 +9,12 @@ export default function SearchAppBar() {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static">
+            <AppBar style={{ height: '56px', background:'rgba(255, 255, 255, 0.1)'}} position="static">
                 <Toolbar>
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="open drawer" >
                         <MenuIcon />
                     </IconButton>
-                    <Typography className={classes.title} variant="h6" noWrap>Material-UI</Typography>
+                    <Typography className={classes.title} variant="h6" noWrap></Typography>
                     <Search />
                 </Toolbar>
             </AppBar>

@@ -8,8 +8,8 @@ export default function SearchAppBar() {
     const classes = useStyles()
 
     return (
-        <div className={classes.root}>
-            <AppBar style={{ height: '56px', background:'rgba(255, 255, 255, 0.1)'}} position="static">
+        // <div className={classes.root}>
+            <AppBar className={classes.appBar} style={{ background: 'rgba(255, 255, 255, 0.2)' }} position="fixed">
                 <Toolbar>
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="open drawer" >
                         <MenuIcon />
@@ -18,6 +18,6 @@ export default function SearchAppBar() {
                     <Search />
                 </Toolbar>
             </AppBar>
-        </div>
+        // </div>
     )
 }

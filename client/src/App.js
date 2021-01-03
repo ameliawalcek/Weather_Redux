@@ -22,17 +22,22 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchFavorites(units))
-    // console.log('dispatching')
+    console.log('dispatching')
   }, [favorites.length, units, dispatch])
 
   return (
-    <div className='App'>
+    <>
       <NavBar />
+      <div className={classes.container}>
+        <div className={classes.titleContainer}>
+          <div className={classes.title}>—Weather Finder—</div>
+        </div>
+      </div>
       <span className={units === FAHRENHEIT ? classes.selected : classes.notSelected} onClick={handleUnits}>°F</span>
       <span className={classes.notSelected}>|</span>
       <span className={units === CELSIUS ? classes.selected : classes.notSelected} onClick={handleUnits}>°C</span>
       <Cities />
-    </div>
+    </>
   )
 }
 

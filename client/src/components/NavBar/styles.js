@@ -15,5 +15,9 @@ export default makeStyles((theme) => ({
         [theme.breakpoints.up('sm')]: {
             display: 'block',
         },
-    }
+    },
+    appBar: {
+        top: 'auto',
+        bottom: 0,
+      },
 }))

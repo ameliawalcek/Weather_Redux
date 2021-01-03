@@ -2,34 +2,23 @@ import { makeStyles } from '@material-ui/core/styles'
 
 export default makeStyles((theme) => ({
     root: {
-        display: 'flex',
-        width: '75%',
+        display: 'grid',
+        gridTemplateColumns: '.18fr .8fr 1fr 1fr',
+        width: '88%',
         marginBottom: '30px',
         background: 'rgba(255, 255, 255, 0.1)',
         border: 'rgba(255, 255, 255, 0.1) solid 2px',
+        padding: '5px'
     },
     icon: {
         color: 'white',
-        cursor: 'pointer'
+        cursor: 'pointer',
+        display: 'grid',
+        justifyContent: 'center',
     },
-    details: {
-        display: 'flex',
-        flexDirection: 'column',
-    },
-    content: {
-        flex: '1 0 auto',
-    },
-    cover: {
-        width: 100,
-    },
-    controls: {
-        display: 'flex',
-        alignItems: 'center',
-        paddingLeft: theme.spacing(1),
-        paddingBottom: theme.spacing(1),
-    },
-    playIcon: {
-        height: 38,
-        width: 38,
-    },
+    img:{
+        display: 'grid',
+        justifyContent: 'center',
+        alignContent: 'center'
+    }
 }));

@@ -16,7 +16,7 @@ export const fetchFavorites = (units) => async (dispatch) => {
             dispatch({ type: FETCH_ALL_CITIES, payload: newData })
         }
     } catch (error) {
-        console.error(error)
+        console.log(error)
     }
 }
 

@@ -24,8 +24,8 @@ const City = ({ city }) => {
         <div className={classes.root}>
             <div className={classes.icon} onClick={handleClick}>
                 {isFavorite
-                    ? <RemoveCircleIcon style={{color: '#ffffffa8', fontSize: '20px'}}/>
-                    : <AddCircleIcon />
+                    ? <RemoveCircleIcon style={{color: '#ffffffa8'}}/>
+                    : <AddCircleIcon style={{color: '#ffffffa8'}}/>
                 }
             </div>
             <div className={classes.details}>

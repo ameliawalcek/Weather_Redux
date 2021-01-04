@@ -10,4 +10,5 @@ const cities = (cities = [], action) => {
     }
 
 }
+
 export default cities

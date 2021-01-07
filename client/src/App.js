@@ -13,11 +13,9 @@ const App = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
   const units = useSelector(state => state.units)
-  const favorites = useSelector(state => state.favorites)
+  const cities = useSelector(state => state.cities)
   const liveLocation = useSelector(state => state.liveLocation)
 
-
-  // console.log(liveLocation)
   const handleUnits = ({ target }) => {
     const { outerText } = target
     if (outerText !== units) {
@@ -34,19 +32,19 @@ const App = () => {
     } else {
       console.log("Not Available")
     }
-  }, [dispatch, units])
+  }, [dispatch, units, liveLocation.length])
 
   useEffect(() => {
     dispatch(fetchFavorites(units))
     console.log('dispatching')
-  }, [favorites.length, units, dispatch])
+  }, [cities.length, units, dispatch])
 
   return (
     <>
-      {/* {liveLocation  */}
-      {/* // && <LiveLocation city={liveLocation}/> */}
-      {/* } */}
       <div className={classes.container}>
+      { liveLocation.length
+        && liveLocation.map(l => <LiveLocation key={l.id} city={l} />)
+      }
         <div className={classes.titleContainer}>
           <div className={classes.title}>—Weather Finder—</div>
         </div>

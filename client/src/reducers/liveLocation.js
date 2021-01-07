@@ -3,7 +3,7 @@ import { GET_LIVE_CITY } from '../constants/constants'
 const liveLocation = (liveLocation = [], action) => {
     switch (action.type) {
         case GET_LIVE_CITY:
-            return [...liveLocation, action.payload]
+            return [action.payload]
         default: return liveLocation
     }
 }

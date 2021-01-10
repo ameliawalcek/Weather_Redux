@@ -6,7 +6,7 @@ export const getCity = (cityName, units) => async (dispatch) => {
         let { data } = await api.getCity(cityName, units)
 
         data = { id: data.id, name: data.name, country: data.sys['country'], main: data.main, weather: data.weather[0], wind: data.wind }
-
+        console.log('creating new city', data)
         dispatch({ type: GET_NEW_CITY, payload: data })
     } catch (error) {
         console.log(error)

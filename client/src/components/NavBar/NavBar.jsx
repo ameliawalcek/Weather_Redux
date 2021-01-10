@@ -8,16 +8,13 @@ export default function SearchAppBar() {
     const classes = useStyles()
 
     return (
-        // <div className={classes.root}>
-            <AppBar className={classes.appBar} style={{ background: 'rgba(255, 255, 255, 0.1)' }} position="fixed">
-                <Toolbar>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="open drawer" >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography className={classes.title} variant="h6" noWrap></Typography>
-                    <Search />
-                </Toolbar>
-            </AppBar>
-        // </div>
+        <AppBar style={{ background: 'linear-gradient(to left, #8EC5FC, #E0C3FC)' }} position="sticky">
+            <Toolbar>
+                <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="open drawer" >
+                    <MenuIcon />
+                </IconButton>
+                <Search style={{ width: '100%', position: 'relative' }} />
+            </Toolbar>
+        </AppBar>
     )
 }

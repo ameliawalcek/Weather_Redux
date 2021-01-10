@@ -24,8 +24,8 @@ const City = ({ city }) => {
         <div className={classes.root}>
             <div className={classes.icon} onClick={handleClick}>
                 {isFavorite
-                    ? <RemoveCircleIcon style={{color: '#ffffffa8'}}/>
-                    : <AddCircleIcon style={{color: '#ffffffa8'}}/>
+                    ? <RemoveCircleIcon style={{ color: '#ffffffa8' }} />
+                    : <AddCircleIcon style={{ color: '#ffffffa8' }} />
                 }
             </div>
             <div className={classes.details}>
@@ -33,22 +33,14 @@ const City = ({ city }) => {
                     {city.name}, {city.country}
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary">
-                    {city.main.temp}{units}
+                    {city.weather.description}
                 </Typography>
             </div>
             <div>
                 <Typography variant="subtitle1" color="textSecondary">
-                    {city.weather.description}
+                    {Math.round(city.main.temp * 10) / 10}{units}
                 </Typography>
-                <Typography variant="subtitle1" color="textSecondary">
-                    humidity: {city.main.humidity}%
-                        </Typography>
-                <Typography variant="subtitle1" color="textSecondary">
-                    pressure: {city.main.pressure}
-                </Typography>
-            </div>
-            <div className={classes.img}>
-                <img src={`http://openweathermap.org/img/wn/${city.weather.icon}@2x.png`} alt={city.weather.description} />
+                <img className={classes.img} src={`http://openweathermap.org/img/wn/${city.weather.icon}@2x.png`} alt={city.weather.description} />
             </div>
         </div>
     )

@@ -2,12 +2,12 @@ import axios from 'axios'
 import dotenv from 'dotenv'
 dotenv.config()
 
-const { WEATHER_API_KEY_TWO } = process.env
+const { WEATHER_API_KEY } = process.env
 
 class WeatherAPI {
     constructor() {
         this.baseUrl = 'http://api.openweathermap.org/data/2.5'
-        this.key = WEATHER_API_KEY_TWO
+        this.key = WEATHER_API_KEY
     }
 
     getUnits = (units) => units === 'f' ? 'imperial' : 'metric'
@@ -37,6 +37,7 @@ class WeatherAPI {
     }
 
     async getLiveCity(lat, lon, units) {
+        units = this.getUnits(units)
         try {
             return (await axios.get(`${this.baseUrl}/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${this.key}`)).data
         } catch (error) {

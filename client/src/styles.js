@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles'
 
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
     selected: {
         color: 'white',
         fontSize: '20px',
@@ -22,7 +22,7 @@ export default makeStyles(() => ({
         backgroundColor: '#ffffffa8',
         color: 'black',
         fontWeight: 'bold',
-        fontSize: '44px',
+        fontSize: '30px',
         margin: '0 auto',
         width: '100%',
         textAlign: 'center',
@@ -31,5 +31,8 @@ export default makeStyles(() => ({
         left: '50%',
         transform: 'translate(-50%, -50%)',
         mixBlendMode: 'screen',
+        [theme.breakpoints.up('md')]: {
+            fontSize: '44px',
+          },
     },
 }))

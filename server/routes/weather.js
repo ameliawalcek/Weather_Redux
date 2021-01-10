@@ -20,7 +20,8 @@ weatherRouter.post('/cities/:units', async (req, res) => {
 
 weatherRouter.post('/city/live/:units', async(req, res) => {
     const {lat, lon} = req.body
-    let response = await dataControllers.weatherAPI.getLiveCity(lat, lon)
+    const { units } = req.params
+    let response = await dataControllers.weatherAPI.getLiveCity(lat, lon, units)
     res.send(response)
 })
 

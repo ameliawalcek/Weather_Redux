@@ -14,6 +14,7 @@ const App = () => {
   const dispatch = useDispatch()
   const units = useSelector(state => state.units)
   const cities = useSelector(state => state.cities)
+  const favorites = useSelector(state => state.favorites)
   const liveLocation = useSelector(state => state.liveLocation)
 
   const handleUnits = ({ target }) => {
@@ -26,6 +27,7 @@ const App = () => {
   useEffect(() => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(function (position) {
+        console.log(position)
         dispatch(getLiveLocation(position.coords.latitude, position.coords.longitude, units))
         console.log('dispatching live')
       })
@@ -37,14 +39,15 @@ const App = () => {
   useEffect(() => {
     dispatch(fetchFavorites(units))
     console.log('dispatching')
-  }, [cities.length, units, dispatch])
+  }, [units, dispatch])
 
   return (
     <>
+      <NavBar />
       <div className={classes.container}>
-      { liveLocation.length
-        && liveLocation.map(l => <LiveLocation key={l.id} city={l} />)
-      }
+        {liveLocation.length
+          && liveLocation.map(l => <LiveLocation key={l.id} city={l} />)
+        }
         <div className={classes.titleContainer}>
           <div className={classes.title}>—Weather Finder—</div>
         </div>
@@ -53,7 +56,6 @@ const App = () => {
       <span className={classes.notSelected}>|</span>
       <span className={units === CELSIUS ? classes.selected : classes.notSelected} onClick={handleUnits}>°C</span>
       <Cities />
-      <NavBar />
     </>
   )
 }

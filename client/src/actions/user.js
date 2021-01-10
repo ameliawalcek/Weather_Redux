@@ -21,8 +21,11 @@ export const fetchFavorites = (units) => async (dispatch) => {
 }
 
 export const createFavorite = (cityId) => async (dispatch) => {
+    console.log('dispatching to create favorite')
     try {
-        const data = await api.createFavorite(cityId)
+        let { data } = await api.createFavorite(cityId)
+        data = parseInt(data.cityId)
+
         dispatch({ type: CREATE_FAVORITE, payload: data })
 
     } catch (error) {

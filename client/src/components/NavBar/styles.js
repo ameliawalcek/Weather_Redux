@@ -10,10 +10,10 @@ export default makeStyles((theme) => ({
         marginRight: theme.spacing(2),
     },
     title: {
-        flexGrow: 1,
-        display: 'none',
-        [theme.breakpoints.up('sm')]: {
-            display: 'block',
-        },
+        // flexGrow: 1,
+        // display: 'block',
+        // [theme.breakpoints.up('lg')]: {
+        //     display: 'block',
+        // },
     }
 }))

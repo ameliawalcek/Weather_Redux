@@ -5,9 +5,9 @@ const favorites = (favorites = [], action) => {
         case FETCH_ALL_FAVORITES:
             return action.payload
         case CREATE_FAVORITE:
-            return [...favorites, action.payload]
+            return [action.payload, ...favorites]
         case DELETE_FAVORITE:
-            return favorites.filter(favorite => favorite === action.payload)
+            return favorites.filter(favorite => favorite !== action.payload)
         default: return favorites
     }
 }

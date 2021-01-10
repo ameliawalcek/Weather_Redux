@@ -5,7 +5,7 @@ const cities = (cities = [], action) => {
         case FETCH_ALL_CITIES:
             return action.payload
         case GET_NEW_CITY:
-            return [...cities, action.payload]
+            return [action.payload, ...cities]
         default: return cities
     }
 

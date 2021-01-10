@@ -1,5 +1,5 @@
 import * as api from '../api'
-import { FETCH_ALL_CITIES, FETCH_ALL_FAVORITES, CREATE_FAVORITE, DELETE_FAVORITE, TOGGLE_TRUE, TOGGLE_FALSE } from '../constants/constants'
+import { FETCH_ALL_CITIES, FETCH_ALL_FAVORITES, CREATE_FAVORITE, DELETE_FAVORITE, RESET } from '../constants/constants'
 
 export const fetchFavorites = (units) => async (dispatch) => {
     try {
@@ -46,6 +46,13 @@ export const deleteFavorite = (cityId) => async (dispatch) => {
 export const setUnits = (type) => {
     return {
         type,
+        payload: 'string'
+    }
+}
+
+export const setPopUp = () => {
+    return {
+        type: RESET,
         payload: 'string'
     }
 }

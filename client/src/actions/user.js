@@ -10,7 +10,7 @@ export const fetchFavorites = (units) => async (dispatch) => {
         if (favorites.length) {
             const { data } = await api.getCities(favorites, units.substring(1).toLowerCase())
             const newData = data.map(d => {
-                return { id: d.id, name: d.name, country: d.sys['country'], main: d.main, weather: d.weather[0], wind: d.wind }
+                return { id: d.id, name: d.name, country: d.sys['country'], main: d.main, weather: d.weather[0]}
             })
 
             dispatch({ type: FETCH_ALL_CITIES, payload: newData })

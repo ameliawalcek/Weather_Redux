@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {Slide, Snackbar} from '@material-ui/core'
-import { setPopUp } from '../../actions/user'
+import { Slide, Snackbar } from '@material-ui/core'
+import { resetPopUp } from '../../actions/user'
 
 const PopUp = () => {
     const popUp = useSelector(state => state.popUp)
@@ -10,10 +10,12 @@ const PopUp = () => {
     const [transition, setTransition] = useState(undefined)
 
     const TransitionUp = (props) => <Slide {...props} direction="up" />
-    
+    const TransitionDown = (props) => <Slide {...props} direction="down" />
+
     const handleClose = () => {
+        setTransition(() => TransitionDown)
         setOpen(false)
-        dispatch(setPopUp())
+        dispatch(resetPopUp())
     }
 
     useEffect(() => {
@@ -23,12 +25,14 @@ const PopUp = () => {
 
     return (
         <>
-            {popUp.popUp && <Snackbar
-                open={open}
-                onClose={handleClose}
-                TransitionComponent={transition}
-                message={popUp.message}
-            />}
+            {popUp.popUp
+                && <Snackbar
+                    open={open}
+                    onClose={handleClose}
+                    TransitionComponent={transition}
+                    message={popUp.message}
+                    autoHideDuration={5000}
+                />}
         </>
     )
 }

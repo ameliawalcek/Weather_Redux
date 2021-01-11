@@ -1,5 +1,5 @@
 import * as api from '../api'
-import { FETCH_ALL_CITIES, FETCH_ALL_FAVORITES, CREATE_FAVORITE, DELETE_FAVORITE, RESET } from '../constants/constants'
+import { FETCH_ALL_CITIES, FETCH_ALL_FAVORITES, CREATE_FAVORITE, DELETE_FAVORITE, RESET, ADD_MESSAGE, REMOVE_MESSAGE } from '../constants/constants'
 
 export const fetchFavorites = (units) => async (dispatch) => {
     try {
@@ -10,7 +10,7 @@ export const fetchFavorites = (units) => async (dispatch) => {
         if (favorites.length) {
             const { data } = await api.getCities(favorites, units.substring(1).toLowerCase())
             const newData = data.map(d => {
-                return { id: d.id, name: d.name, country: d.sys['country'], main: d.main, weather: d.weather[0]}
+                return { id: d.id, name: d.name, country: d.sys['country'], main: d.main, weather: d.weather[0] }
             })
 
             dispatch({ type: FETCH_ALL_CITIES, payload: newData })
@@ -27,7 +27,7 @@ export const createFavorite = (cityId) => async (dispatch) => {
         data = parseInt(data.cityId)
 
         dispatch({ type: CREATE_FAVORITE, payload: data })
-
+        dispatch({ type: ADD_MESSAGE })
     } catch (error) {
         console.log(error)
     }
@@ -38,19 +38,20 @@ export const deleteFavorite = (cityId) => async (dispatch) => {
         await api.deleteFavorite(cityId)
 
         dispatch({ type: DELETE_FAVORITE, payload: cityId })
+        dispatch({ type: REMOVE_MESSAGE })
     } catch (error) {
+
         console.log(error)
     }
 }
 
 export const setUnits = (type) => {
     return {
-        type,
-        payload: 'string'
+        type
     }
 }
 
-export const setPopUp = () => {
+export const resetPopUp = () => {
     return {
         type: RESET,
         payload: 'string'

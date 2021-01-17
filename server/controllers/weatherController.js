@@ -1,7 +1,7 @@
 import axios from 'axios'
 import dotenv from 'dotenv'
 dotenv.config()
-
+//https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=hourly,minutely&appid=955cc47fe469f327936e57dae7d7bb10
 const { WEATHER_API_KEY } = process.env
 
 class WeatherAPI {
@@ -38,8 +38,11 @@ class WeatherAPI {
 
     async getLiveCity(lat, lon, units) {
         units = this.getUnits(units)
+        const weeklyData = (await axios.get(`${this.baseUrl}/onecall?lat=${lat}&lon=${lon}&units=${units}&exclude=hourly,minutely&appid=${this.key}`)).data
+        const locationData = (await axios.get(`${this.baseUrl}/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${this.key}`)).data
+        const data = {locationData, weeklyData}
         try {
-            return (await axios.get(`${this.baseUrl}/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${this.key}`)).data
+            return data
         } catch (error) {
             console.log(error)
         }

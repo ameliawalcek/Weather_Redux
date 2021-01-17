@@ -35,4 +35,8 @@ export default makeStyles((theme) => ({
             fontSize: '44px',
           },
     },
+    cityContainer:{
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr'
+    }
 }))

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Cities from './components/Cities/Cities'
 import NavBar from './components/NavBar/NavBar'
 import PopUp from './components/PopUp/PopUp'
+import Weekly from './components/Cities/LiveLocation/Weekly/Weekly'
 import LiveLocation from './components/Cities/LiveLocation/LiveLocation'
 import useStyles from './styles'
 import { FAHRENHEIT, CELSIUS } from './constants/constants'
@@ -15,8 +16,7 @@ const App = () => {
   const units = useSelector(state => state.units)
   const liveLocation = useSelector(state => state.liveLocation)
   const popUp = useSelector(state => state.popUp)
-  console.log(popUp)
-  
+
   const handleUnits = ({ target }) => {
     const { outerText } = target
     if (outerText !== units) {
@@ -44,9 +44,12 @@ const App = () => {
     <>
       <NavBar />
       <div className={classes.container}>
-        {liveLocation.length
-          && liveLocation.map(l => <LiveLocation key={l.id} city={l} />)
-        }
+        {liveLocation.locationData && <LiveLocation />}
+        <div className={classes.cityContainer}>
+
+        {liveLocation.weeklyData &&
+          liveLocation.weeklyData.map(day => <Weekly day={day} />)}
+        </div>
         <div className={classes.titleContainer}>
           <div className={classes.title}>—Weather Finder—</div>
         </div>

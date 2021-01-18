@@ -4,11 +4,10 @@ export default makeStyles((theme) => ({
     root: {
         display: 'grid',
         gridTemplateRows: '.9fr 1fr',
-        width: '88%',
+        width: '100%',
         marginTop: '25px',
         background: 'rgba(255, 255, 255, 0.1)',
         border: 'rgba(255, 255, 255, 0.1) solid 2px',
-        padding: '2px'
     },
     mainContent:{
         display: 'grid',

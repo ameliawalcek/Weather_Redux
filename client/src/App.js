@@ -45,14 +45,15 @@ const App = () => {
       <NavBar />
       <div className={classes.container}>
         {liveLocation.locationData && <LiveLocation />}
-        <div className={classes.cityContainer}>
-
-        {liveLocation.weeklyData &&
-          liveLocation.weeklyData.map(day => <Weekly day={day} />)}
+        <div className={classes.weekly}>
+          <div className={classes.cityContainer}>
+            {liveLocation.weeklyData &&
+              liveLocation.weeklyData.map(day => <Weekly day={day} key={Math.random()}/>)}
+          </div>
         </div>
-        <div className={classes.titleContainer}>
-          <div className={classes.title}>—Weather Finder—</div>
-        </div>
+      </div>
+      <div className={classes.titleContainer}>
+        <div className={classes.title}>—Weather Finder—</div>
       </div>
       <span className={units === FAHRENHEIT ? classes.selected : classes.notSelected} onClick={handleUnits}>°F</span>
       <span className={classes.notSelected}>|</span>

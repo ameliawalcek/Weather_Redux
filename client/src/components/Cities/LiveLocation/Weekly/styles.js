@@ -22,7 +22,15 @@ export default makeStyles(() => ({
         fontSize: '10px',
         verticalAlign: 'top'
     },
-    cityContainer:{
+    cityContainer: {
         textAlign: 'center',
+        background: 'rgba(255, 255, 255, 0.1)',
+        border: 'rgba(255, 255, 255, 0.1) solid 2px',
+        padding: '2px',
+        height: '149px',
+        display: 'grid',
+        justifyItems: 'center',
+        alignItems: 'center',
+        width: '80px'
     }
 }))

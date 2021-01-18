@@ -8,7 +8,6 @@ const LiveLocation = () => {
     const classes = useStyles()
     const units = useSelector(state => state.units)
     const liveLocation = useSelector(state => state.liveLocation)
-    console.log(liveLocation.weeklyData)
     const city = liveLocation.locationData
 
     return (

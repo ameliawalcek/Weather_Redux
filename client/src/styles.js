@@ -37,6 +37,19 @@ export default makeStyles((theme) => ({
     },
     cityContainer:{
         display: 'grid',
-        gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr'
+        gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr',
+        width: '100%',
+        justifyItems: 'center',
+    },
+    container:{
+        marginLeft: '4%',
+        marginRight: '4%'
+    },
+    weekly: {
+        display: 'grid',
+        justifyItems: 'center',
+        marginTop: '10px',
+        marginBottom: '10px',
+        overflow: 'auto'
     }
 }))

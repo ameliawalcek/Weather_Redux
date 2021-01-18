@@ -16,7 +16,7 @@ const Weekly = ({ day }) => {
         <div className={classes.cityContainer}>
             <div className={classes.day}>{timeConverter(day.dt)}</div>
             <div className={classes.temp}>{Math.floor(day.temp.min)}<span className={classes.unit}>{units}</span> | {Math.floor(day.temp.max)}<span className={classes.unit}>{units}</span></div>
-            <img className={classes.img} src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`} />
+            <img className={classes.img} src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`} alt={day.weather[0].description}/>
             <div className={classes.description}>{day.weather[0].description}</div>
         </div>
     )

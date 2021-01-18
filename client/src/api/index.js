@@ -10,5 +10,5 @@ export const getLiveCity = (lat, lon, units) => axios.post(`${weatherUrl}/city/l
 
 //from user DB
 export const fetchFavorites = () => axios.get(`${userUrl}/favorites`)
-export const createFavorite = (cityId) => axios.post(`${userUrl}/favorites`, { cityId })
-export const deleteFavorite = (cityId) => axios.delete(`${userUrl}/favorites/${cityId}`)
+export const createFavorite = cityId => axios.post(`${userUrl}/favorites`, { cityId })
+export const deleteFavorite = cityId => axios.delete(`${userUrl}/favorites/${cityId}`)

@@ -9,6 +9,7 @@ import useStyles from './styles'
 import { FAHRENHEIT, CELSIUS } from './constants/constants'
 import { fetchFavorites, setUnits } from './actions/user'
 import { getLiveLocation } from './actions/weather'
+import axios from 'axios'
 
 const App = () => {
   const classes = useStyles()
@@ -40,6 +41,12 @@ const App = () => {
     console.log('dispatching')
   }, [units, dispatch])
 
+  useEffect(()=>{
+    axios.get('https://api.github.com/search/users?q=a&token=2a6abefe7e3e6183227493b70a710e397ff806a8').then((res)=>{
+
+      console.log(res.data)
+    })
+  })
   return (
     <>
       <NavBar />

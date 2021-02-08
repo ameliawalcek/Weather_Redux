@@ -12,7 +12,7 @@ const City = ({ city }) => {
 
     const units = useSelector(state => state.units)
     const favorites = useSelector(state => state.favorites)
-    const isFavorite = favorites.length && favorites.some(f => city.id === f)
+    const isFavorite = favorites?.some(f => city.id === f)
 
     const handleClick = () => {
         isFavorite

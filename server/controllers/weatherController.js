@@ -1,7 +1,7 @@
 import axios from 'axios'
 import dotenv from 'dotenv'
 dotenv.config()
-//https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=hourly,minutely&appid=955cc47fe469f327936e57dae7d7bb10
+
 const { WEATHER_API_KEY } = process.env
 
 class WeatherAPI {

@@ -41,12 +41,6 @@ const App = () => {
     console.log('dispatching')
   }, [units, dispatch])
 
-  useEffect(()=>{
-    axios.get('https://api.github.com/search/users?q=a&token=2a6abefe7e3e6183227493b70a710e397ff806a8').then((res)=>{
-
-      console.log(res.data)
-    })
-  })
   return (
     <>
       <NavBar />
@@ -54,8 +48,7 @@ const App = () => {
         {liveLocation.locationData && <LiveLocation />}
         <div className={classes.weekly}>
           <div className={classes.cityContainer}>
-            {liveLocation.weeklyData &&
-              liveLocation.weeklyData.map(day => <Weekly day={day} key={Math.random()}/>)}
+            {liveLocation.weeklyData?.map(day => <Weekly day={day} key={Math.random()}/>)}
           </div>
         </div>
       </div>

@@ -9,7 +9,6 @@ import useStyles from './styles'
 import { FAHRENHEIT, CELSIUS } from './constants/constants'
 import { fetchFavorites, setUnits } from './actions/user'
 import { getLiveLocation } from './actions/weather'
-import axios from 'axios'
 
 const App = () => {
   const classes = useStyles()
